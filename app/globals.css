@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Industrial Heavy Transport Theme */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Primary: Trust Blue - Vertrauen */
+    --primary: 222.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary */
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Accent: Safety Orange - Warnung/Ampel */
+    --accent: 24.6 95% 53.3%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Success: Go Green - Genehmigung OK */
+    --success: 142.1 71.1% 45.3%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning: Attention Yellow - Bald ablaufend */
+    --warning: 37.8 92.1% 50.2%;
+    --warning-foreground: 0 0% 0%;
+
+    /* Danger: Stop Red - Keine Genehmigung */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 24.6 95% 53.3%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Traffic Light Animation Classes */
+.traffic-light {
+  @apply rounded-full transition-all duration-300;
+}
+
+.traffic-light-green {
+  @apply bg-go-green shadow-lg shadow-go-green/50;
+}
+
+.traffic-light-yellow {
+  @apply bg-attention-yellow shadow-lg shadow-attention-yellow/50;
+}
+
+.traffic-light-red {
+  @apply bg-stop-red shadow-lg shadow-stop-red/50;
+}
+
+.traffic-light-inactive {
+  @apply bg-gray-300;
+}
