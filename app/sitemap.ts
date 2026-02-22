@@ -4,18 +4,46 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
+    // Main pages
     {
       url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 1,
     },
+    // SEO Landingpages
     {
-      url: `${SITE_URL}/preise`,
+      url: `${SITE_URL}/schwertransport-genehmigung`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.9,
     },
+    {
+      url: `${SITE_URL}/spedition-software`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    },
+    {
+      url: `${SITE_URL}/grossraumtransport-genehmigung`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/lkw-genehmigung`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    // Solutions
+    {
+      url: `${SITE_URL}/loesungen`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    // Tools
     {
       url: `${SITE_URL}/tools/roi-rechner`,
       lastModified: new Date(),
@@ -28,11 +56,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
+    // Blog
     {
       url: `${SITE_URL}/blog`,
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/blog/schwertransport-genehmigung-guide`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/blog/genehmigungs-pflichten-spediteure`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/blog/strafen-vermeiden-schwertransporte`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    },
+    // Legal
+    {
+      url: `${SITE_URL}/preise`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
     },
     {
       url: `${SITE_URL}/impressum`,
