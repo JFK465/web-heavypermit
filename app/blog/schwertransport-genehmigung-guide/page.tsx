@@ -1,10 +1,11 @@
 import { Metadata } from "next";
 import { generateSEOMetadata } from "@/lib/seo/metadata";
 import { Calendar } from "lucide-react";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 export const metadata: Metadata = generateSEOMetadata({
   title: "Schwertransport-Genehmigung: Der komplette Guide 2026",
-  description: "Alles was Sie über Schwertransport-Genehmigungen wissen müssen: Rechtliche Grundlagen, Beantragung, Kosten und Tipps.",
+  description: "Alles was Sie über Schwertransport-Genehmigungen wissen müssen: Rechtliche Grundlagen, Beantragung, Kosten und Tipps. Jetzt lesen!",
   keywords: ["Schwertransport Guide", "Genehmigung Schwertransport Anleitung", "Schwertransport Deutschland"],
   canonical: "/blog/schwertransport-genehmigung-guide",
 });
@@ -12,7 +13,12 @@ export const metadata: Metadata = generateSEOMetadata({
 export default function BlogArticlePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8">
+        <Breadcrumbs items={[
+          { name: "Blog", href: "/blog" },
+          { name: "Schwertransport-Genehmigung: Der komplette Guide", href: "/blog/schwertransport-genehmigung-guide" }
+        ]} />
+
         <div className="max-w-3xl mx-auto">
           <div className="flex items-center gap-2 text-sm text-gray-500 mb-6">
             <Calendar className="w-4 h-4" />

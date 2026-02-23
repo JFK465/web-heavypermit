@@ -1,16 +1,20 @@
 import { Metadata } from "next";
 import { generateSEOMetadata } from "@/lib/seo/metadata";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: "Impressum - HeavyPermit",
-  description: "Impressum von HeavyPermit - Genehmigungs-Management für Schwertransporte",
+  title: "Impressum - Kontakt und rechtliche Informationen",
+  description: "Impressum von HeavyPermit. Hier finden Sie alle rechtlichen Informationen, Kontaktdaten und Firmendetails. Genehmigungs-Management für Schwertransporte.",
+  keywords: ["HeavyPermit Impressum", "Firma Kontakt", "rechtliche Informationen"],
   canonical: "/impressum",
 });
 
 export default function ImpressumPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8">
+        <Breadcrumbs items={[{ name: "Impressum", href: "/impressum" }]} />
+
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl font-bold text-gray-900 mb-8">Impressum</h1>
 

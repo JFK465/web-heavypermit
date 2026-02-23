@@ -2,11 +2,12 @@ import { Metadata } from "next";
 import { generateSEOMetadata } from "@/lib/seo/metadata";
 import { FileText, Calendar } from "lucide-react";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: "Blog - HeavyPermit",
+  title: "Blog - Expertenwissen für Speditionen",
   description:
-    "Ratgeber und Expertenwissen zu Schwertransport-Genehmigungen, rechtlichen Anforderungen und Tipps für Speditionen.",
+    "Ratgeber und Expertenwissen zu Schwertransport-Genehmigungen, rechtlichen Anforderungen und Tipps für Speditionen. Jetzt lesen und profitieren!",
   keywords: ["Schwertransport Blog", "Genehmigung Ratgeber", "Spedition Wissen"],
   canonical: "/blog",
 });
@@ -41,7 +42,9 @@ const blogPosts = [
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8">
+        <Breadcrumbs items={[{ name: "Blog", href: "/blog" }]} />
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">

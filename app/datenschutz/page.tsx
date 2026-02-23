@@ -1,16 +1,20 @@
 import { Metadata } from "next";
 import { generateSEOMetadata } from "@/lib/seo/metadata";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 export const metadata: Metadata = generateSEOMetadata({
-  title: "Datenschutz - HeavyPermit",
-  description: "Datenschutzerklärung von HeavyPermit - Ihre Daten sind bei uns sicher",
+  title: "Datenschutz - Ihre Daten sind bei uns sicher",
+  description: "Datenschutzerklärung von HeavyPermit. Erfahren Sie, wie wir Ihre Daten schützen und verarbeiten. DSGVO-konforme Datenverarbeitung.",
+  keywords: ["HeavyPermit Datenschutz", "DSGVO", "Datenschutzerklärung"],
   canonical: "/datenschutz",
 });
 
 export default function DatenschutzPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8">
+        <Breadcrumbs items={[{ name: "Datenschutz", href: "/datenschutz" }]} />
+
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl font-bold text-gray-900 mb-8">Datenschutzerklärung</h1>
 

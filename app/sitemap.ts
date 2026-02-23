@@ -11,6 +11,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 1,
     },
+    // Core Pages
+    {
+      url: `${SITE_URL}/funktionen`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/preise`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${SITE_URL}/kontakt`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    },
     // SEO Landingpages
     {
       url: `${SITE_URL}/schwertransport-genehmigung`,
@@ -56,6 +75,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
+    // Wissen
+    {
+      url: `${SITE_URL}/wissen`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/wissen/genehmigungspflichten`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/wissen/streckenplanung`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/wissen/bussgeld-vermeiden`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    },
     // Blog
     {
       url: `${SITE_URL}/blog`,
@@ -83,12 +127,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // Legal
     {
-      url: `${SITE_URL}/preise`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.8,
-    },
-    {
       url: `${SITE_URL}/impressum`,
       lastModified: new Date(),
       changeFrequency: "yearly" as const,
@@ -96,6 +134,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${SITE_URL}/datenschutz`,
+      lastModified: new Date(),
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${SITE_URL}/agb`,
       lastModified: new Date(),
       changeFrequency: "yearly" as const,
       priority: 0.3,

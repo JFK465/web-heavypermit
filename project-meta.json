@@ -1,0 +1,12 @@
+{
+  "projektName": "heavypermit",
+  "displayName": "HeavyPermit",
+  "domain": "heavypermit.de",
+  "appDomain": "app.heavypermit.de",
+  "zielgruppe": "Speditionen, Transportunternehmen, Logistikunternehmen",
+  "problem": "Bußgelder und Stilllegungen durch abgelaufene Genehmigungen, Unsicherheit ob Aufträge angenommen werden können",
+  "loesung": "Genehmigungs-Management mit Ampelsystem (gültig/läuft ab/abgelaufen) zur zentralen Verwaltung aller Schwertransport-Genehmigungen",
+  "branche": "Logistik, Spedition, Schwertransport",
+  "keywords": ["Schwertransport Genehmigung", "Spedition Software", "Großraumtransport", "LKW Genehmigung", "Genehmigungs-Management"],
+  "preisModell": "499 EUR/Monat + 20 EUR/LKW"
+}

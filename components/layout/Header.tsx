@@ -1,10 +1,64 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X, ChevronDown } from 'lucide-react'
 
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.heavypermit.de'
+
+interface NavDropdown {
+  label: string;
+  items: { name: string; href: string; description?: string }[];
+}
+
+function DropdownMenu({ dropdown }: { dropdown: NavDropdown }) {
+  const [open, setOpen] = useState(false)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+
+  const handleEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current)
+    setOpen(true)
+  }
+
+  const handleLeave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150)
+  }
+
+  useEffect(() => {
+    return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current) }
+  }, [])
+
+  return (
+    <div className="relative" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
+      <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">
+        {dropdown.label}
+        <ChevronDown className={`h-4 w-4 transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+
+      {open && (
+        <>
+          <div className="absolute left-0 right-0 h-2" />
+          <div className="absolute left-0 top-full pt-2 w-64 z-50">
+            <div className="bg-white rounded-lg shadow-lg border p-2 animate-in fade-in slide-in-from-top-1 duration-150">
+              {dropdown.items.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="block px-3 py-2.5 rounded-md text-sm hover:bg-gray-100 transition-colors"
+                >
+                  <span className="font-medium text-gray-900">{item.name}</span>
+                  {item.description && (
+                    <span className="block text-xs text-gray-500 mt-0.5">{item.description}</span>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -13,6 +67,35 @@ export function Header() {
   const toggleDropdown = (menu: string) => {
     setOpenDropdown(openDropdown === menu ? null : menu)
   }
+
+  const navDropdowns: NavDropdown[] = [
+    {
+      label: 'Produkt',
+      items: [
+        { name: 'Funktionen', href: '/funktionen', description: 'Alle Features im Überblick' },
+        { name: 'Preise', href: '/preise', description: 'Transparent und fair' },
+        { name: 'Genehmigungs-Checker', href: '/tools/genehmigungs-checker', description: 'Kostenlos testen' },
+        { name: 'ROI-Rechner', href: '/tools/roi-rechner', description: 'Ersparnis berechnen' },
+      ],
+    },
+    {
+      label: 'Lösungen',
+      items: [
+        { name: 'Lösungen', href: '/loesungen', description: 'Branchenspezifisch' },
+        { name: 'Schwertransport-Genehmigung', href: '/schwertransport-genehmigung', description: 'Für Schwertransporte' },
+        { name: 'Spedition-Software', href: '/spedition-software', description: 'Für Speditionen' },
+        { name: 'Großraumtransport', href: '/grossraumtransport-genehmigung', description: 'Für Großraumtransporte' },
+        { name: 'LKW-Genehmigung', href: '/lkw-genehmigung', description: 'Für LKW-Transporte' },
+      ],
+    },
+    {
+      label: 'Wissen',
+      items: [
+        { name: 'Wissen', href: '/wissen', description: 'Ratgeber & Expertenwissen' },
+        { name: 'Blog', href: '/blog', description: 'Aktuelle Artikel' },
+      ],
+    },
+  ]
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
@@ -30,84 +113,14 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
-            {/* Tools Dropdown */}
-            <div className="relative group">
-              <button
-                onMouseEnter={() => setOpenDropdown('tools')}
-                className="px-4 py-2 rounded-lg hover:bg-gray-100 transition flex items-center gap-1 font-medium text-gray-700"
-              >
-                Tools
-                <ChevronDown className="w-4 h-4" />
-              </button>
+            {navDropdowns.map((dropdown) => (
+              <DropdownMenu key={dropdown.label} dropdown={dropdown} />
+            ))}
 
-              {openDropdown === 'tools' && (
-                <div
-                  onMouseLeave={() => setOpenDropdown(null)}
-                  className="absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-xl py-2"
-                >
-                  <Link
-                    href="/tools/genehmigungs-checker"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                  >
-                    <div className="font-semibold text-gray-900">Genehmigungs-Checker</div>
-                    <div className="text-xs text-gray-600">Prüfen ob Genehmigung gültig</div>
-                  </Link>
-                  <Link
-                    href="/tools/roi-rechner"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                  >
-                    <div className="font-semibold text-gray-900">ROI-Rechner</div>
-                    <div className="text-xs text-gray-600">Zeitersparnis berechnen</div>
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* Blog Dropdown */}
-            <div className="relative group">
-              <button
-                onMouseEnter={() => setOpenDropdown('blog')}
-                className="px-4 py-2 rounded-lg hover:bg-gray-100 transition flex items-center gap-1 font-medium text-gray-700"
-              >
-                Blog
-                <ChevronDown className="w-4 h-4" />
-              </button>
-
-              {openDropdown === 'blog' && (
-                <div
-                  onMouseLeave={() => setOpenDropdown(null)}
-                  className="absolute top-full left-0 mt-1 w-72 bg-white border border-gray-200 rounded-lg shadow-xl py-2"
-                >
-                  <Link
-                    href="/blog"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                  >
-                    <div className="font-semibold text-gray-900">Alle Artikel</div>
-                    <div className="text-xs text-gray-600">Ratgeber & Expertenwissen</div>
-                  </Link>
-                  <div className="border-t border-gray-200 my-2"></div>
-                  <Link
-                    href="/blog/schwertransport-genehmigung-guide"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                  >
-                    <div className="font-semibold text-gray-900">Schwertransport-Genehmigung Guide</div>
-                    <div className="text-xs text-gray-600">Alles was Sie wissen müssen</div>
-                  </Link>
-                  <Link
-                    href="/blog/genehmigungs-pflichten-spediteure"
-                    className="block px-4 py-2 hover:bg-gray-100 transition"
-                  >
-                    <div className="font-semibold text-gray-900">Genehmigungspflichten für Speditionen</div>
-                    <div className="text-xs text-gray-600">Rechtliche Grundlagen</div>
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* Preise Link */}
+            {/* Preise Link - kein Dropdown */}
             <Link
               href="/preise"
-              className="px-4 py-2 rounded-lg hover:bg-gray-100 transition font-medium text-gray-700"
+              className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
             >
               Preise
             </Link>
@@ -119,7 +132,7 @@ export function Header() {
               href={`${APP_URL}/auth/login`}
               className="px-4 py-2 text-gray-700 hover:text-gray-900 font-medium transition"
             >
-              Login
+              Anmelden
             </a>
             <a
               href={`${APP_URL}/beta-signup`}
@@ -146,17 +159,23 @@ export function Header() {
         {isMobileMenuOpen && (
           <div className="md:hidden border-t border-gray-200 py-4">
             <nav className="flex flex-col gap-2">
-              {/* Tools */}
+              {/* Produkt Dropdown */}
               <div>
                 <button
-                  onClick={() => toggleDropdown('mobile-tools')}
+                  onClick={() => toggleDropdown('mobile-produkt')}
                   className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg font-medium flex items-center justify-between"
                 >
-                  Tools
-                  <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'mobile-tools' ? 'rotate-180' : ''}`} />
+                  Produkt
+                  <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'mobile-produkt' ? 'rotate-180' : ''}`} />
                 </button>
-                {openDropdown === 'mobile-tools' && (
+                {openDropdown === 'mobile-produkt' && (
                   <div className="pl-4 mt-2 space-y-2">
+                    <Link href="/funktionen" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg">
+                      Funktionen
+                    </Link>
+                    <Link href="/preise" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg">
+                      Preise
+                    </Link>
                     <Link href="/tools/genehmigungs-checker" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg">
                       Genehmigungs-Checker
                     </Link>
@@ -167,10 +186,56 @@ export function Header() {
                 )}
               </div>
 
-              {/* Blog */}
-              <Link href="/blog" className="px-4 py-2 hover:bg-gray-100 rounded-lg font-medium">
-                Blog
-              </Link>
+              {/* Lösungen Dropdown */}
+              <div>
+                <button
+                  onClick={() => toggleDropdown('mobile-loesungen')}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg font-medium flex items-center justify-between"
+                >
+                  Lösungen
+                  <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'mobile-loesungen' ? 'rotate-180' : ''}`} />
+                </button>
+                {openDropdown === 'mobile-loesungen' && (
+                  <div className="pl-4 mt-2 space-y-2">
+                    <Link href="/loesungen" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg">
+                      Lösungen
+                    </Link>
+                    <Link href="/schwertransport-genehmigung" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg">
+                      Schwertransport
+                    </Link>
+                    <Link href="/spedition-software" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg">
+                      Spedition
+                    </Link>
+                    <Link href="/grossraumtransport-genehmigung" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg">
+                      Großraumtransport
+                    </Link>
+                    <Link href="/lkw-genehmigung" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg">
+                      LKW-Genehmigung
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              {/* Wissen Dropdown */}
+              <div>
+                <button
+                  onClick={() => toggleDropdown('mobile-wissen')}
+                  className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg font-medium flex items-center justify-between"
+                >
+                  Wissen
+                  <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === 'mobile-wissen' ? 'rotate-180' : ''}`} />
+                </button>
+                {openDropdown === 'mobile-wissen' && (
+                  <div className="pl-4 mt-2 space-y-2">
+                    <Link href="/wissen" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg">
+                      Wissen
+                    </Link>
+                    <Link href="/blog" className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg">
+                      Blog
+                    </Link>
+                  </div>
+                )}
+              </div>
 
               {/* Preise */}
               <Link href="/preise" className="px-4 py-2 hover:bg-gray-100 rounded-lg font-medium">
@@ -180,7 +245,7 @@ export function Header() {
               <div className="border-t border-gray-200 my-2"></div>
 
               <a href={`${APP_URL}/auth/login`} className="px-4 py-2 hover:bg-gray-100 rounded-lg font-medium">
-                Login
+                Anmelden
               </a>
               <a href={`${APP_URL}/beta-signup`} className="mx-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold text-center block">
                 Kostenlos testen

@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
+import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
 type PermitStatus = "valid" | "expiring" | "expired" | "unknown";
 
@@ -98,7 +99,9 @@ export default function GenehmigungsCheckerPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8">
+        <Breadcrumbs items={[{ name: "Genehmigungs-Checker", href: "/tools/genehmigungs-checker" }]} />
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-6">

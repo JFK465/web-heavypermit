@@ -24,6 +24,9 @@ export function generateSEOMetadata({
     description,
     keywords: [...keywords, "HeavyPermit", "Genehmigungs-Management", "Schwertransport"].join(", "),
     authors: [{ name: "HeavyPermit Team" }],
+    alternates: {
+      canonical: fullUrl,
+    },
     openGraph: {
       title: `${title} | HeavyPermit`,
       description,
