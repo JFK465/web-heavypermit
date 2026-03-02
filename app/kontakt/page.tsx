@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { Mail, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, MapPin, Clock } from "lucide-react";
 import { generateSEOMetadata } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = generateSEOMetadata({
   title: "Kontakt - Jetzt unverbindlich anfragen",
-  description: "Kontaktieren Sie das HeavyPermit Team. Wir beraten Sie gerne zu unserem Genehmigungs-Management für Schwertransporte. Jetzt Kontakt aufnehmen!",
-  keywords: ["HeavyPermit Kontakt", "Genehmigungs-Management Kontakt", "Schwertransport Software Kontakt"],
+  description:
+    "Kontaktieren Sie das HeavyPermit Team. Wir beraten Sie gerne zu unserem Genehmigungs-Management für Schwertransporte. Jetzt Kontakt aufnehmen!",
+  keywords: [
+    "HeavyPermit Kontakt",
+    "Genehmigungs-Management Kontakt",
+    "Schwertransport Software Kontakt",
+  ],
   canonical: "/kontakt",
 });
 
@@ -17,9 +22,7 @@ export default function KontaktPage() {
         <Breadcrumbs items={[{ name: "Kontakt", href: "/kontakt" }]} />
 
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Kontakt
-          </h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Kontakt</h1>
           <p className="text-xl text-gray-600 mb-12">
             Haben Sie Fragen zu HeavyPermit? Wir helfen Ihnen gerne weiter.
           </p>
@@ -32,7 +35,10 @@ export default function KontaktPage() {
               </h2>
               <form className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Name
                   </label>
                   <input
@@ -43,7 +49,10 @@ export default function KontaktPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     E-Mail
                   </label>
                   <input
@@ -54,7 +63,10 @@ export default function KontaktPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="company"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Firma (optional)
                   </label>
                   <input
@@ -65,7 +77,10 @@ export default function KontaktPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
                     Nachricht
                   </label>
                   <textarea
@@ -96,20 +111,11 @@ export default function KontaktPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">E-Mail</h3>
-                    <a href="mailto:info@heavypermit.de" className="text-gray-600 hover:text-blue-600">
+                    <a
+                      href="mailto:info@heavypermit.de"
+                      className="text-gray-600 hover:text-blue-600"
+                    >
                       info@heavypermit.de
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Telefon</h3>
-                    <a href="tel:+49000000000" className="text-gray-600 hover:text-blue-600">
-                      +49 (0) 000 000 000
                     </a>
                   </div>
                 </div>
@@ -121,8 +127,10 @@ export default function KontaktPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900">Adresse</h3>
                     <p className="text-gray-600">
-                      HeavyPermit<br />
-                      123 Musterstraße<br />
+                      HeavyPermit
+                      <br />
+                      123 Musterstraße
+                      <br />
                       12345 Musterstadt
                     </p>
                   </div>
@@ -133,10 +141,10 @@ export default function KontaktPage() {
                     <Clock className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Öffnungszeiten</h3>
-                    <p className="text-gray-600">
-                      Mo - Fr: 9:00 - 17:00 Uhr
-                    </p>
+                    <h3 className="font-semibold text-gray-900">
+                      Öffnungszeiten
+                    </h3>
+                    <p className="text-gray-600">Mo - Fr: 9:00 - 17:00 Uhr</p>
                   </div>
                 </div>
               </div>
@@ -147,14 +155,15 @@ export default function KontaktPage() {
                   Schnelle Antwort?
                 </h3>
                 <p className="text-gray-600 text-sm">
-                  Vielleicht finden Sie die Antwort auf Ihre Frage in unserem{' '}
+                  Vielleicht finden Sie die Antwort auf Ihre Frage in unserem{" "}
                   <a href="/blog" className="text-blue-600 hover:underline">
                     Blog
-                  </a>
-                  {' '}oder auf der{' '}
+                  </a>{" "}
+                  oder auf der{" "}
                   <a href="/preise" className="text-blue-600 hover:underline">
                     Preise-Seite
-                  </a>.
+                  </a>
+                  .
                 </p>
               </div>
             </div>
