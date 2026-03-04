@@ -1,8 +1,25 @@
 import type { Metadata, Viewport } from "next";
+import { DM_Sans, Outfit } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { OrganizationSchema, WebSiteSchema } from "@/components/seo/StructuredData";
+import {
+  OrganizationSchema,
+  WebSiteSchema,
+} from "@/components/seo/StructuredData";
+
+// bold-industrial Font-Kombination #2: DM Sans (Body) + Outfit (Headlines)
+const fontBody = DM_Sans({
+  variable: "--font-body",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const fontHeadline = Outfit({
+  variable: "--font-headline",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -11,8 +28,15 @@ export const metadata: Metadata = {
     default: "HeavyPermit - Genehmigungs-Management für Schwertransporte",
     template: "%s | HeavyPermit",
   },
-  description: "Die Datenbank für Genehmigungen mit Ampelsystem: Kann ich diesen Auftrag annehmen? Vermeiden Sie Bußgelder und Stilllegungen. Jetzt kostenlos testen!",
-  keywords: ["Schwertransport Genehmigung", "Spedition Software", "Großraumtransport", "LKW Genehmigung", "Genehmigungs-Management"],
+  description:
+    "Die Datenbank für Genehmigungen mit Ampelsystem: Kann ich diesen Auftrag annehmen? Vermeiden Sie Bußgelder und Stilllegungen. Jetzt kostenlos testen!",
+  keywords: [
+    "Schwertransport Genehmigung",
+    "Spedition Software",
+    "Großraumtransport",
+    "LKW Genehmigung",
+    "Genehmigungs-Management",
+  ],
   authors: [{ name: "HeavyPermit Team" }],
   metadataBase: new URL(SITE_URL),
   icons: {
@@ -25,7 +49,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "HeavyPermit - Genehmigungs-Management für Schwertransporte",
-    description: "Die Datenbank für Genehmigungen mit Ampelsystem: Kann ich diesen Auftrag annehmen? Jetzt kostenlos testen!",
+    description:
+      "Die Datenbank für Genehmigungen mit Ampelsystem: Kann ich diesen Auftrag annehmen? Jetzt kostenlos testen!",
     url: SITE_URL,
     siteName: "HeavyPermit",
     locale: "de_DE",
@@ -34,7 +59,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "HeavyPermit - Genehmigungs-Management für Schwertransporte",
-    description: "Die Datenbank für Genehmigungen mit Ampelsystem: Kann ich diesen Auftrag annehmen?",
+    description:
+      "Die Datenbank für Genehmigungen mit Ampelsystem: Kann ich diesen Auftrag annehmen?",
   },
   robots: {
     index: true,
@@ -56,19 +82,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="de">
+    <html lang="de" className={`${fontBody.variable} ${fontHeadline.variable}`}>
       <head>
         <OrganizationSchema />
-        <WebSiteSchema
-          name="HeavyPermit"
-          url={SITE_URL}
-        />
+        <WebSiteSchema name="HeavyPermit" url={SITE_URL} />
       </head>
-      <body className="antialiased min-h-screen flex flex-col">
+      <body className="antialiased min-h-screen flex flex-col font-[var(--font-body)]">
         <Header />
-        <main className="flex-1">
-          {children}
-        </main>
+        <main className="flex-1">{children}</main>
         <Footer />
       </body>
     </html>

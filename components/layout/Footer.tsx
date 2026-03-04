@@ -1,6 +1,7 @@
-import Link from 'next/link'
+import Link from "next/link";
+import Image from "next/image";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://app.heavypermit.de'
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://app.heavypermit.de";
 
 export function Footer() {
   return (
@@ -13,7 +14,8 @@ export function Footer() {
               Bleiben Sie informiert
             </h3>
             <p className="text-gray-400 mb-6">
-              Erhalten Sie aktuelle Informationen zu Genehmigungen, Rechtstipps und Neuigkeiten von HeavyPermit.
+              Erhalten Sie aktuelle Informationen zu Genehmigungen, Rechtstipps
+              und Neuigkeiten von HeavyPermit.
             </p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
@@ -29,7 +31,8 @@ export function Footer() {
               </button>
             </form>
             <p className="text-xs text-gray-500 mt-3">
-              Wir respektieren Ihre Privatsphäre. Sie können sich jederzeit abmelden.
+              Wir respektieren Ihre Privatsphäre. Sie können sich jederzeit
+              abmelden.
             </p>
           </div>
         </div>
@@ -43,7 +46,10 @@ export function Footer() {
             <h4 className="font-bold text-white mb-4">Produkt</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/funktionen" className="hover:text-white transition">
+                <Link
+                  href="/funktionen"
+                  className="hover:text-white transition"
+                >
                   Funktionen
                 </Link>
               </li>
@@ -53,17 +59,26 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/tools/genehmigungs-checker" className="hover:text-white transition">
+                <Link
+                  href="/tools/genehmigungs-checker"
+                  className="hover:text-white transition"
+                >
                   Genehmigungs-Checker
                 </Link>
               </li>
               <li>
-                <Link href="/tools/roi-rechner" className="hover:text-white transition">
+                <Link
+                  href="/tools/roi-rechner"
+                  className="hover:text-white transition"
+                >
                   ROI-Rechner
                 </Link>
               </li>
               <li>
-                <a href={`${APP_URL}/beta-signup`} className="hover:text-white transition">
+                <a
+                  href={`${APP_URL}/beta-signup`}
+                  className="hover:text-white transition"
+                >
                   Kostenlos testen
                 </a>
               </li>
@@ -80,22 +95,34 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/schwertransport-genehmigung" className="hover:text-white transition">
+                <Link
+                  href="/schwertransport-genehmigung"
+                  className="hover:text-white transition"
+                >
                   Schwertransport
                 </Link>
               </li>
               <li>
-                <Link href="/spedition-software" className="hover:text-white transition">
+                <Link
+                  href="/spedition-software"
+                  className="hover:text-white transition"
+                >
                   Speditionen
                 </Link>
               </li>
               <li>
-                <Link href="/grossraumtransport-genehmigung" className="hover:text-white transition">
+                <Link
+                  href="/grossraumtransport-genehmigung"
+                  className="hover:text-white transition"
+                >
                   Großraumtransport
                 </Link>
               </li>
               <li>
-                <Link href="/lkw-genehmigung" className="hover:text-white transition">
+                <Link
+                  href="/lkw-genehmigung"
+                  className="hover:text-white transition"
+                >
                   LKW-Genehmigung
                 </Link>
               </li>
@@ -117,12 +144,18 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog/schwertransport-genehmigung-guide" className="hover:text-white transition">
+                <Link
+                  href="/blog/schwertransport-genehmigung-guide"
+                  className="hover:text-white transition"
+                >
                   Genehmigung Guide
                 </Link>
               </li>
               <li>
-                <Link href="/blog/genehmigungs-pflichten-spediteure" className="hover:text-white transition">
+                <Link
+                  href="/blog/genehmigungs-pflichten-spediteure"
+                  className="hover:text-white transition"
+                >
                   Genehmigungspflichten
                 </Link>
               </li>
@@ -144,7 +177,10 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/datenschutz" className="hover:text-white transition">
+                <Link
+                  href="/datenschutz"
+                  className="hover:text-white transition"
+                >
                   Datenschutz
                 </Link>
               </li>
@@ -154,7 +190,10 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a href={`${APP_URL}/auth/login`} className="hover:text-white transition">
+                <a
+                  href={`${APP_URL}/auth/login`}
+                  className="hover:text-white transition"
+                >
                   Login
                 </a>
               </li>
@@ -167,19 +206,31 @@ export function Footer() {
           <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
             <span className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
               </svg>
               DSGVO-konform
             </span>
             <span className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5.05 3.636a1 1 0 010 1.414 7 7 0 000 9.9 1 1 0 11-1.414 1.414 9 9 0 010-12.728 1 1 0 011.414 0zm9.9 0a1 1 0 011.414 0 9 9 0 010 12.728 1 1 0 11-1.414-1.414 7 7 0 000-9.9 1 1 0 010-1.414zM7.879 6.464a1 1 0 010 1.414 3 3 0 000 4.243 1 1 0 11-1.415 1.414 5 5 0 010-7.07 1 1 0 011.415 0zm4.242 0a1 1 0 011.415 0 5 5 0 010 7.072 1 1 0 01-1.415-1.415 3 3 0 000-4.242 1 1 0 010-1.415z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5.05 3.636a1 1 0 010 1.414 7 7 0 000 9.9 1 1 0 11-1.414 1.414 9 9 0 010-12.728 1 1 0 011.414 0zm9.9 0a1 1 0 011.414 0 9 9 0 010 12.728 1 1 0 11-1.414-1.414 7 7 0 000-9.9 1 1 0 010-1.414zM7.879 6.464a1 1 0 010 1.414 3 3 0 000 4.243 1 1 0 11-1.415 1.414 5 5 0 010-7.07 1 1 0 011.415 0zm4.242 0a1 1 0 011.415 0 5 5 0 010 7.072 1 1 0 01-1.415-1.415 3 3 0 000-4.242 1 1 0 010-1.415z"
+                  clipRule="evenodd"
+                />
               </svg>
               Made in Germany
             </span>
             <span className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                <path
+                  fillRule="evenodd"
+                  d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                  clipRule="evenodd"
+                />
               </svg>
               SSL-verschlüsselt
             </span>
@@ -190,19 +241,26 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-center md:text-left">
-              <p className="text-lg font-semibold text-white mb-1">
-                HeavyPermit
-              </p>
+              <div className="flex items-center gap-2 mb-1">
+                <Image
+                  src="/logo-dark.svg"
+                  alt="HeavyPermit"
+                  width={28}
+                  height={28}
+                />
+                <p className="text-lg font-semibold text-white">HeavyPermit</p>
+              </div>
               <p className="text-sm text-gray-400">
                 Genehmigungs-Management für Schwertransporte
               </p>
             </div>
             <p className="text-xs text-gray-500">
-              &copy; {new Date().getFullYear()} HeavyPermit. Alle Rechte vorbehalten.
+              &copy; {new Date().getFullYear()} HeavyPermit. Alle Rechte
+              vorbehalten.
             </p>
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

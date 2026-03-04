@@ -5,6 +5,7 @@
 @layer base {
   :root {
     /* Industrial Heavy Transport Theme */
+    --hue: 220; /* trust-blue primary hue fuer Scrollbar + Selection */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -76,7 +77,41 @@
   }
 }
 
-/* Traffic Light Animation Classes */
+/* ===== Bold-Industrial Design Tokens ===== */
+:root {
+  --radius-card: 0; /* bold-industrial: kantig */
+  --radius-button: 0;
+  --radius-badge: 0;
+  --glow-intensity: 0; /* bold-industrial: kein Glow */
+}
+
+/* ===== Fluid Typography ===== */
+.heading-hero {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.heading-section {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Headlines nutzen Display-Font (Outfit) */
+h1,
+h2,
+h3 {
+  font-family: var(--font-headline, var(--font-body, system-ui, sans-serif));
+}
+
+/* ===== Custom Scrollbar (bold-industrial: Selection-Color only) ===== */
+::selection {
+  background-color: oklch(0.55 0.18 var(--hue) / 0.25);
+  color: inherit;
+}
+
+/* ===== Traffic Light Animation Classes ===== */
 .traffic-light {
   @apply rounded-full transition-all duration-300;
 }
