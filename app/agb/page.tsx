@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { generateSEOMetadata } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = generateSEOMetadata({
-  title: "AGB - Allgemeine Geschäftsbedingungen",
-  description: "Allgemeine Geschäftsbedingungen von HeavyPermit. Nutzungsbedingungen für das Genehmigungs-Management. Hier finden Sie alle rechtlichen Bedingungen.",
-  keywords: ["HeavyPermit AGB", "Nutzungsbedingungen", "AGB Software"],
-  canonical: "/agb",
-});
+export const metadata: Metadata = {
+  title: "AGB - Allgemeine Geschäftsbedingungen | HeavyPermit",
+  description:
+    "Allgemeine Geschäftsbedingungen von HeavyPermit. Nutzungsbedingungen für das Genehmigungs-Management. Hier finden Sie alle rechtlichen Bedingungen.",
+  robots: { index: false, follow: true },
+};
 
 export default function AGBPage() {
   return (
@@ -26,7 +25,10 @@ export default function AGBPage() {
                 1. Geltungsbereich
               </h2>
               <p className="text-gray-600">
-                Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen der HeavyPermit GmbH (nachfolgend „Anbieter") und dem Kunden (nachfolgend „Nutzer") über die Nutzung der Software-as-a-Service-Lösung HeavyPermit.
+                Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle
+                Verträge zwischen der HeavyPermit GmbH (nachfolgend „Anbieter")
+                und dem Kunden (nachfolgend „Nutzer") über die Nutzung der
+                Software-as-a-Service-Lösung HeavyPermit.
               </p>
             </section>
 
@@ -35,7 +37,10 @@ export default function AGBPage() {
                 2. Vertragsgegenstand
               </h2>
               <p className="text-gray-600">
-                Gegenstand des Vertrages ist die Bereitstellung der Software HeavyPermit über das Internet. HeavyPermit ist eine Anwendung zur Verwaltung von Schwertransport-Genehmigungen mit dem Ziel, die Einhaltung gesetzlicher Vorgaben zu unterstützen.
+                Gegenstand des Vertrages ist die Bereitstellung der Software
+                HeavyPermit über das Internet. HeavyPermit ist eine Anwendung
+                zur Verwaltung von Schwertransport-Genehmigungen mit dem Ziel,
+                die Einhaltung gesetzlicher Vorgaben zu unterstützen.
               </p>
             </section>
 
@@ -44,7 +49,8 @@ export default function AGBPage() {
                 3. Leistungsumfang
               </h2>
               <p className="text-gray-600 mb-4">
-                Der Anbieter stellt dem Nutzer folgende Leistungen zur Verfügung:
+                Der Anbieter stellt dem Nutzer folgende Leistungen zur
+                Verfügung:
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
                 <li>Zugang zur HeavyPermit-Software über das Internet</li>
@@ -75,7 +81,12 @@ export default function AGBPage() {
                 5. Haftung
               </h2>
               <p className="text-gray-600">
-                Die Haftung des Anbieters ist auf Vorsatz und grobe Fahrlässigkeit beschränkt. Die Software dient als Hilfsmittel zur Genehmigungsverwaltung. Eine Haftung für die Richtigkeit der Daten oder die Einhaltung gesetzlicher Vorschriften wird ausgeschlossen. Der Nutzer ist selbst verantwortlich für die Überprüfung der Genehmigungen.
+                Die Haftung des Anbieters ist auf Vorsatz und grobe
+                Fahrlässigkeit beschränkt. Die Software dient als Hilfsmittel
+                zur Genehmigungsverwaltung. Eine Haftung für die Richtigkeit der
+                Daten oder die Einhaltung gesetzlicher Vorschriften wird
+                ausgeschlossen. Der Nutzer ist selbst verantwortlich für die
+                Überprüfung der Genehmigungen.
               </p>
             </section>
 
@@ -84,7 +95,9 @@ export default function AGBPage() {
                 6. Datenschutz
               </h2>
               <p className="text-gray-600">
-                Der Anbieter verarbeitet personenbezogene Daten gemäß der Datenschutzerklärung. Alle Daten werden auf Servern in Deutschland gespeichert.
+                Der Anbieter verarbeitet personenbezogene Daten gemäß der
+                Datenschutzerklärung. Alle Daten werden auf Servern in
+                Deutschland gespeichert.
               </p>
             </section>
 
@@ -93,7 +106,9 @@ export default function AGBPage() {
                 7. Vertragslaufzeit und Kündigung
               </h2>
               <p className="text-gray-600">
-                Der Vertrag wird auf unbestimmte Zeit geschlossen. Beide Parteien können den Vertrag mit einer Frist von 30 Tagen zum Monatsende kündigen.
+                Der Vertrag wird auf unbestimmte Zeit geschlossen. Beide
+                Parteien können den Vertrag mit einer Frist von 30 Tagen zum
+                Monatsende kündigen.
               </p>
             </section>
 
@@ -102,13 +117,19 @@ export default function AGBPage() {
                 8. Schlussbestimmungen
               </h2>
               <p className="text-gray-600">
-                Es gilt deutsches Recht. Gerichtsstand ist der Sitz des Anbieters.
+                Es gilt deutsches Recht. Gerichtsstand ist der Sitz des
+                Anbieters.
               </p>
             </section>
 
             <section className="pt-8 border-t">
               <p className="text-gray-500 text-sm">
-                Stand: {new Date().toLocaleDateString('de-DE', { year: 'numeric', month: 'long', day: 'numeric' })}
+                Stand:{" "}
+                {new Date().toLocaleDateString("de-DE", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
               </p>
             </section>
           </div>

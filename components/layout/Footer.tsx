@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://app.heavypermit.de";
+const APP_URL =
+  process.env.NEXT_PUBLIC_APP_URL ||
+  "https://app.schwertransport-genehmigung.de";
 
 export function Footer() {
   return (

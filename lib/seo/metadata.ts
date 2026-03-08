@@ -13,16 +13,23 @@ export function generateSEOMetadata({
   description,
   keywords = [],
   canonical = "/",
-  image = "/og-image.png",
+  image = "/og.png",
 }: SEOParams): Metadata {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://schwertransport-genehmigung.de";
   const fullUrl = `${siteUrl}${canonical}`;
   const fullImageUrl = image.startsWith("http") ? image : `${siteUrl}${image}`;
 
   return {
     title: `${title} | HeavyPermit`,
     description,
-    keywords: [...keywords, "HeavyPermit", "Genehmigungs-Management", "Schwertransport"].join(", "),
+    keywords: [
+      ...keywords,
+      "HeavyPermit",
+      "Genehmigungs-Management",
+      "Schwertransport",
+    ].join(", "),
     authors: [{ name: "HeavyPermit Team" }],
     alternates: {
       canonical: fullUrl,

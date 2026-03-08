@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://schwertransport-genehmigung.de";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
@@ -124,25 +125,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.6,
-    },
-    // Legal
-    {
-      url: `${SITE_URL}/impressum`,
-      lastModified: new Date(),
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/datenschutz`,
-      lastModified: new Date(),
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
-    {
-      url: `${SITE_URL}/agb`,
-      lastModified: new Date(),
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
     },
   ];
 

@@ -1,8 +1,20 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Calculator, TrendingUp, Clock, Shield, CheckCircle2 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Calculator,
+  TrendingUp,
+  Clock,
+  Shield,
+  CheckCircle2,
+} from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -48,21 +60,22 @@ export default function ROICalculatorPage() {
 
   useEffect(() => {
     calculateROI();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fleetSize, avgFine, hourlyRate, hoursPerWeek]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       <div className="container mx-auto px-4 py-8">
-        <Breadcrumbs items={[{ name: "ROI-Rechner", href: "/tools/roi-rechner" }]} />
+        <Breadcrumbs
+          items={[{ name: "ROI-Rechner", href: "/tools/roi-rechner" }]}
+        />
 
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
             <Calculator className="w-8 h-8 text-blue-600" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            ROI-Rechner
-          </h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">ROI-Rechner</h1>
           <p className="text-xl text-gray-600">
             Berechnen Sie, wie viel Geld Sie mit HeavyPermit sparen können
           </p>
@@ -87,13 +100,17 @@ export default function ROICalculatorPage() {
                     min="1"
                     max="500"
                     value={fleetSize}
-                    onChange={(e) => setFleetSize(parseInt(e.target.value) || 1)}
+                    onChange={(e) =>
+                      setFleetSize(parseInt(e.target.value) || 1)
+                    }
                     className="mt-1"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="avgFine">Durchschnittliches Bußgeld (€)</Label>
+                  <Label htmlFor="avgFine">
+                    Durchschnittliches Bußgeld (€)
+                  </Label>
                   <Input
                     id="avgFine"
                     type="number"
@@ -104,32 +121,41 @@ export default function ROICalculatorPage() {
                     className="mt-1"
                   />
                   <p className="text-xs text-gray-500 mt-1">
-                    Ein einziger Fehler (Fahren ohne Genehmigung) kostet schnell 2.500€+
+                    Ein einziger Fehler (Fahren ohne Genehmigung) kostet schnell
+                    2.500€+
                   </p>
                 </div>
 
                 <div>
-                  <Label htmlFor="hourlyRate">Stundensatz Ihrer Mitarbeiter (€)</Label>
+                  <Label htmlFor="hourlyRate">
+                    Stundensatz Ihrer Mitarbeiter (€)
+                  </Label>
                   <Input
                     id="hourlyRate"
                     type="number"
                     min="20"
                     max="200"
                     value={hourlyRate}
-                    onChange={(e) => setHourlyRate(parseInt(e.target.value) || 0)}
+                    onChange={(e) =>
+                      setHourlyRate(parseInt(e.target.value) || 0)
+                    }
                     className="mt-1"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="hoursPerWeek">Stunden pro Woche für Genehmigungsverwaltung (pro LKW)</Label>
+                  <Label htmlFor="hoursPerWeek">
+                    Stunden pro Woche für Genehmigungsverwaltung (pro LKW)
+                  </Label>
                   <Input
                     id="hoursPerWeek"
                     type="number"
                     min="1"
                     max="20"
                     value={hoursPerWeek}
-                    onChange={(e) => setHoursPerWeek(parseInt(e.target.value) || 0)}
+                    onChange={(e) =>
+                      setHoursPerWeek(parseInt(e.target.value) || 0)
+                    }
                     className="mt-1"
                   />
                 </div>
@@ -148,15 +174,25 @@ export default function ROICalculatorPage() {
               {results && (
                 <>
                   {/* ROI Card */}
-                  <Card className={results.roi > 0 ? "border-green-500 border-2" : "border-red-500 border-2"}>
+                  <Card
+                    className={
+                      results.roi > 0
+                        ? "border-green-500 border-2"
+                        : "border-red-500 border-2"
+                    }
+                  >
                     <CardHeader>
                       <CardTitle className="flex items-center gap-2">
-                        <TrendingUp className={`w-6 h-6 ${results.roi > 0 ? "text-green-600" : "text-red-600"}`} />
+                        <TrendingUp
+                          className={`w-6 h-6 ${results.roi > 0 ? "text-green-600" : "text-red-600"}`}
+                        />
                         Ihre Rendite
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <div className={`text-5xl font-bold mb-2 ${results.roi > 0 ? "text-green-600" : "text-red-600"}`}>
+                      <div
+                        className={`text-5xl font-bold mb-2 ${results.roi > 0 ? "text-green-600" : "text-red-600"}`}
+                      >
                         {results.roi.toFixed(0)}%
                       </div>
                       <p className="text-gray-600">
@@ -191,7 +227,9 @@ export default function ROICalculatorPage() {
                       <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
                         <div className="flex items-center gap-3">
                           <Shield className="w-5 h-5 text-green-600" />
-                          <span className="font-medium">Vermeidung von Bußgeldern</span>
+                          <span className="font-medium">
+                            Vermeidung von Bußgeldern
+                          </span>
                         </div>
                         <div className="text-right">
                           <div className="text-2xl font-bold text-green-700">
@@ -202,19 +240,27 @@ export default function ROICalculatorPage() {
 
                       <div className="border-t pt-4">
                         <div className="flex items-center justify-between">
-                          <span className="font-bold text-lg">Gesamtersparnis</span>
+                          <span className="font-bold text-lg">
+                            Gesamtersparnis
+                          </span>
                           <span className="text-3xl font-bold text-green-700">
                             {results.totalSavings.toLocaleString()} €
                           </span>
                         </div>
                         <div className="flex items-center justify-between mt-2 text-gray-600">
                           <span>Jährliche Kosten für HeavyPermit</span>
-                          <span>- {(499 + fleetSize * 20 * 12).toLocaleString()} €</span>
+                          <span>
+                            - {(499 + fleetSize * 20 * 12).toLocaleString()} €
+                          </span>
                         </div>
                         <div className="flex items-center justify-between mt-2 font-bold text-xl">
                           <span>Netto-Ersparnis</span>
                           <span className="text-green-700">
-                            {(results.totalSavings - (499 + fleetSize * 20) * 12).toLocaleString()} €
+                            {(
+                              results.totalSavings -
+                              (499 + fleetSize * 20) * 12
+                            ).toLocaleString()}{" "}
+                            €
                           </span>
                         </div>
                       </div>
@@ -230,15 +276,21 @@ export default function ROICalculatorPage() {
                       <ul className="space-y-3">
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-600">Rechtliche Sicherheit bei Audits</span>
+                          <span className="text-gray-600">
+                            Rechtliche Sicherheit bei Audits
+                          </span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-600">Professioneller Eindruck bei Kunden</span>
+                          <span className="text-gray-600">
+                            Professioneller Eindruck bei Kunden
+                          </span>
                         </li>
                         <li className="flex items-start gap-2">
                           <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-600">Weniger Stress für Ihre Mitarbeiter</span>
+                          <span className="text-gray-600">
+                            Weniger Stress für Ihre Mitarbeiter
+                          </span>
                         </li>
                       </ul>
                     </CardContent>

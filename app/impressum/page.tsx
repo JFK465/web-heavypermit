@@ -1,14 +1,12 @@
 import { Metadata } from "next";
-import { generateSEOMetadata } from "@/lib/seo/metadata";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
-export const metadata: Metadata = generateSEOMetadata({
-  title: "Impressum – Kontakt und rechtliche Informationen",
+export const metadata: Metadata = {
+  title: "Impressum – Kontakt und rechtliche Informationen | HeavyPermit",
   description:
     "Impressum von HeavyPermit. Kontaktdaten und rechtliche Informationen zum Genehmigungs-Management für Schwertransporte.",
-  keywords: ["HeavyPermit Impressum", "Kontakt", "rechtliche Informationen"],
-  canonical: "/impressum",
-});
+  robots: { index: false, follow: true },
+};
 
 export default function ImpressumPage() {
   return (

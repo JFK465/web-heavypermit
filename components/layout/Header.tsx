@@ -5,7 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL || "https://app.heavypermit.de";
+const APP_URL =
+  process.env.NEXT_PUBLIC_APP_URL ||
+  "https://app.schwertransport-genehmigung.de";
 
 interface NavDropdown {
   label: string;
@@ -155,7 +157,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/logo.svg"
+              src="/logo-icon.svg"
               alt="HeavyPermit Logo"
               width={32}
               height={32}

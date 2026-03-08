@@ -21,7 +21,8 @@ const fontHeadline = Outfit({
   display: "swap",
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://schwertransport-genehmigung.de";
 
 export const metadata: Metadata = {
   title: {
@@ -55,12 +56,21 @@ export const metadata: Metadata = {
     siteName: "HeavyPermit",
     locale: "de_DE",
     type: "website",
+    images: [
+      {
+        url: `${SITE_URL}/og.png`,
+        width: 1200,
+        height: 630,
+        alt: "HeavyPermit - Genehmigungs-Management für Schwertransporte",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "HeavyPermit - Genehmigungs-Management für Schwertransporte",
     description:
       "Die Datenbank für Genehmigungen mit Ampelsystem: Kann ich diesen Auftrag annehmen?",
+    images: [`${SITE_URL}/og.png`],
   },
   robots: {
     index: true,

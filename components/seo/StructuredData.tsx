@@ -15,7 +15,9 @@ export function StructuredData({ data }: StructuredDataProps) {
 
 // Organization Schema for SEO
 export function OrganizationSchema() {
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://schwertransport-genehmigung.de";
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -148,7 +150,9 @@ export function ArticleSchema({
   authorName,
   image,
 }: ArticleSchemaProps) {
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://schwertransport-genehmigung.de";
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -192,7 +196,9 @@ interface WebPageSchemaProps {
 }
 
 export function WebPageSchema({ name, description, url }: WebPageSchemaProps) {
-  const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    "https://schwertransport-genehmigung.de";
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebPage",

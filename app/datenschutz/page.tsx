@@ -1,13 +1,12 @@
 import { Metadata } from "next";
-import { generateSEOMetadata } from "@/lib/seo/metadata";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
 
-export const metadata: Metadata = generateSEOMetadata({
-  title: "Datenschutz - Ihre Daten sind bei uns sicher",
-  description: "Datenschutzerklärung von HeavyPermit. Erfahren Sie, wie wir Ihre Daten schützen und verarbeiten. DSGVO-konforme Datenverarbeitung.",
-  keywords: ["HeavyPermit Datenschutz", "DSGVO", "Datenschutzerklärung"],
-  canonical: "/datenschutz",
-});
+export const metadata: Metadata = {
+  title: "Datenschutz - Ihre Daten sind bei uns sicher | HeavyPermit",
+  description:
+    "Datenschutzerklärung von HeavyPermit. Erfahren Sie, wie wir Ihre Daten schützen und verarbeiten. DSGVO-konforme Datenverarbeitung.",
+  robots: { index: false, follow: true },
+};
 
 export default function DatenschutzPage() {
   return (
@@ -16,7 +15,9 @@ export default function DatenschutzPage() {
         <Breadcrumbs items={[{ name: "Datenschutz", href: "/datenschutz" }]} />
 
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold text-gray-900 mb-8">Datenschutzerklärung</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-8">
+            Datenschutzerklärung
+          </h1>
 
           <div className="prose prose-lg max-w-none">
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
@@ -26,24 +27,27 @@ export default function DatenschutzPage() {
               Allgemeine Hinweise
             </h3>
             <p className="text-gray-600 mb-4">
-              Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit
-              Ihren personenbezogenen Daten passiert, wenn Sie diese Website
-              besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie
-              persönlich identifiziert werden können. Ausführliche Informationen zum
-              Thema Datenschutz entnehmen Sie unserer unter diesem Text aufgeführten
-              Datenschutzerklärung.
+              Die folgenden Hinweise geben einen einfachen Überblick darüber,
+              was mit Ihren personenbezogenen Daten passiert, wenn Sie diese
+              Website besuchen. Personenbezogene Daten sind alle Daten, mit
+              denen Sie persönlich identifiziert werden können. Ausführliche
+              Informationen zum Thema Datenschutz entnehmen Sie unserer unter
+              diesem Text aufgeführten Datenschutzerklärung.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-2">
               Datenerfassung auf dieser Website
             </h3>
             <p className="text-gray-600 mb-4">
-              <strong>Wer ist verantwortlich für die Datenerfassung auf dieser Website?</strong>
+              <strong>
+                Wer ist verantwortlich für die Datenerfassung auf dieser
+                Website?
+              </strong>
             </p>
             <p className="text-gray-600 mb-4">
               Die Datenverarbeitung auf dieser Website erfolgt durch den
-              Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum dieser
-              Website entnehmen.
+              Websitebetreiber. Dessen Kontaktdaten können Sie dem Impressum
+              dieser Website entnehmen.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
@@ -53,15 +57,20 @@ export default function DatenschutzPage() {
               Wir hosten die Inhalte unserer Website bei folgendem Anbieter:
             </p>
             <p className="text-gray-600 mb-4">
-              <strong>Vercel</strong><br />
-              Vercel Inc.<br />
-              440 N Barranca Ave #4133<br />
-              Covina, CA 91723<br />
+              <strong>Vercel</strong>
+              <br />
+              Vercel Inc.
+              <br />
+              440 N Barranca Ave #4133
+              <br />
+              Covina, CA 91723
+              <br />
               USA
             </p>
             <p className="text-gray-600 mb-4">
               Weitere Informationen zum Datenschutz bei Vercel finden Sie in der
-              Datenschutzerklärung von Vercel: https://vercel.com/legal/privacy-policy
+              Datenschutzerklärung von Vercel:
+              https://vercel.com/legal/privacy-policy
             </p>
 
             <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">
@@ -71,18 +80,18 @@ export default function DatenschutzPage() {
               Datenschutz
             </h3>
             <p className="text-gray-600 mb-4">
-              Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten
-              sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und
-              entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser
-              Datenschutzerklärung.
+              Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen
+              Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten
+              vertraulich und entsprechend der gesetzlichen
+              Datenschutzvorschriften sowie dieser Datenschutzerklärung.
             </p>
             <p className="text-gray-600 mb-4">
-              Wenn Sie diese Website benutzen, werden verschiedene personenbezogene
-              Daten erhoben. Personenbezogene Daten sind Daten, mit denen Sie
-              persönlich identifiziert werden können. Die vorliegende
-              Datenschutzerklärung erläutert, welche Daten wir erheben und wofür wir
-              sie nutzen. Sie erläutert auch, wie und zu welchem Zweck das
-              geschieht.
+              Wenn Sie diese Website benutzen, werden verschiedene
+              personenbezogene Daten erhoben. Personenbezogene Daten sind Daten,
+              mit denen Sie persönlich identifiziert werden können. Die
+              vorliegende Datenschutzerklärung erläutert, welche Daten wir
+              erheben und wofür wir sie nutzen. Sie erläutert auch, wie und zu
+              welchem Zweck das geschieht.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-2">
@@ -90,10 +99,11 @@ export default function DatenschutzPage() {
             </h3>
             <p className="text-gray-600 mb-4">
               Viele Datenverarbeitungsvorgänge sind nur mit Ihrer ausdrücklichen
-              Einwilligung möglich. Sie können eine bereits erteilte Einwilligung
-              jederzeit widerrufen. Dazu reicht eine formlose Mitteilung per E-Mail
-              an uns. Die Rechtmäßigkeit der bis zum Widerruf erfolgten
-              Datenverarbeitung bleibt vom Widerruf unberührt.
+              Einwilligung möglich. Sie können eine bereits erteilte
+              Einwilligung jederzeit widerrufen. Dazu reicht eine formlose
+              Mitteilung per E-Mail an uns. Die Rechtmäßigkeit der bis zum
+              Widerruf erfolgten Datenverarbeitung bleibt vom Widerruf
+              unberührt.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-2">
@@ -115,30 +125,28 @@ export default function DatenschutzPage() {
               Cookies
             </h3>
             <p className="text-gray-600 mb-4">
-              Unsere Internetseiten verwenden so genannte "Cookies". Cookies sind
-              kleine Textdateien und richten auf Ihrem Endgerät keinen Schaden an.
-              Sie werden entweder vorübergehend für die Dauer einer Sitzung
-              (Session-Cookies) oder dauerhaft (permanente Cookies) auf Ihrem
-              Endgerät gespeichert. Session-Cookies werden nach Ende Ihres Besuchs
-              automatisch gelöscht. Permanente Cookies bleiben auf Ihrem Endgerät
-              gespeichert, bis Sie diese selbst löschen oder eine automatische
-              Löschung durch Ihren Webbrowser erfolgt.
+              Unsere Internetseiten verwenden so genannte "Cookies". Cookies
+              sind kleine Textdateien und richten auf Ihrem Endgerät keinen
+              Schaden an. Sie werden entweder vorübergehend für die Dauer einer
+              Sitzung (Session-Cookies) oder dauerhaft (permanente Cookies) auf
+              Ihrem Endgerät gespeichert. Session-Cookies werden nach Ende Ihres
+              Besuchs automatisch gelöscht. Permanente Cookies bleiben auf Ihrem
+              Endgerät gespeichert, bis Sie diese selbst löschen oder eine
+              automatische Löschung durch Ihren Webbrowser erfolgt.
             </p>
 
             <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-2">
               Kontaktformular
             </h3>
             <p className="text-gray-600 mb-4">
-              Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre
-              Angaben aus dem Anfrageformular inklusive der dort angegebenen
-              Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von
-              Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne
-              Ihre Einwilligung weiter.
+              Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden
+              Ihre Angaben aus dem Anfrageformular inklusive der dort
+              angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für
+              den Fall von Anschlussfragen bei uns gespeichert. Diese Daten
+              geben wir nicht ohne Ihre Einwilligung weiter.
             </p>
 
-            <p className="text-gray-500 mt-12">
-              Stand: [Datum]
-            </p>
+            <p className="text-gray-500 mt-12">Stand: [Datum]</p>
           </div>
         </div>
       </div>
