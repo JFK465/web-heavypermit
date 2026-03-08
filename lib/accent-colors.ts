@@ -1,9 +1,9 @@
-// Accent-Color-System fuer HeavyPermit (bold-industrial Preset)
-// Rotierende Farben fuer Feature-Cards und How-It-Works Steps
+// Accent-Color-System für HeavyPermit (bold-industrial Preset)
+// Rotierende Farben für Feature-Cards und How-It-Works Steps
 
 export interface AccentColor {
   bg: string; // Tailwind bg-Klasse
-  icon: string; // Tailwind text-Klasse fuer Icons
+  icon: string; // Tailwind text-Klasse für Icons
   border: string; // Tailwind border-Klasse
   label: string; // Sprachliche Beschreibung
 }
@@ -48,7 +48,7 @@ export const accentColors: AccentColor[] = [
 ];
 
 /**
- * Gibt die Accent-Farbe fuer einen Index zurueck (rotierend).
+ * Gibt die Accent-Farbe für einen Index zurück (rotierend).
  */
 export function getAccentColor(index: number): AccentColor {
   return accentColors[index % accentColors.length];

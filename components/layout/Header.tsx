@@ -112,7 +112,7 @@ export function Header() {
       items: [
         {
           name: "Lösungen",
-          href: "/loesungen",
+          href: "/lösungen",
           description: "Branchenspezifisch",
         },
         {
@@ -260,18 +260,18 @@ export function Header() {
               {/* Lösungen Dropdown */}
               <div>
                 <button
-                  onClick={() => toggleDropdown("mobile-loesungen")}
+                  onClick={() => toggleDropdown("mobile-lösungen")}
                   className="w-full text-left px-4 py-2 hover:bg-gray-100 rounded-lg font-medium flex items-center justify-between"
                 >
                   Lösungen
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform ${openDropdown === "mobile-loesungen" ? "rotate-180" : ""}`}
+                    className={`w-4 h-4 transition-transform ${openDropdown === "mobile-lösungen" ? "rotate-180" : ""}`}
                   />
                 </button>
-                {openDropdown === "mobile-loesungen" && (
+                {openDropdown === "mobile-lösungen" && (
                   <div className="pl-4 mt-2 space-y-2">
                     <Link
-                      href="/loesungen"
+                      href="/lösungen"
                       className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg"
                     >
                       Lösungen

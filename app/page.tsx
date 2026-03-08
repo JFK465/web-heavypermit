@@ -89,7 +89,7 @@ export default function LandingPage() {
                 variants={blurIn}
                 className="inline-block bg-orange-100 text-orange-800 px-4 py-2 text-sm font-semibold mb-6 border-2 border-orange-200"
               >
-                Exklusive Beta - Limitierte Plaetze verfuegbar
+                Exklusive Beta - Limitierte Plaetze verfügbar
               </motion.div>
 
               {/* H1 mit TextReveal */}
@@ -103,7 +103,7 @@ export default function LandingPage() {
               <AnimateOnScroll variant="fadeInUp" delay={0.3}>
                 <p className="text-xl text-muted-foreground mb-8">
                   HeavyPermit zeigt Ihnen per Ampel-System, ob Ihre
-                  Genehmigungen gueltig sind. Vermeiden Sie Bussgelder und
+                  Genehmigungen gültig sind. Vermeiden Sie Bussgelder und
                   Stilllegungen.
                 </p>
               </AnimateOnScroll>
@@ -158,7 +158,7 @@ export default function LandingPage() {
                     <div className="flex items-center justify-between pb-4 border-b-2 border-foreground/10">
                       <div>
                         <h3 className="text-xl font-bold text-gray-900">
-                          Genehmigungs-Uebersicht
+                          Genehmigungs-Übersicht
                         </h3>
                         <p className="text-sm text-gray-500 mt-1">
                           Alle Genehmigungen auf einen Blick
@@ -180,7 +180,7 @@ export default function LandingPage() {
                           </span>
                         </div>
                         <div className="text-lg font-bold text-green-700 mb-1">
-                          Gueltig
+                          Gültig
                         </div>
                         <div className="text-xs text-gray-500">
                           12 Genehmigungen
@@ -231,7 +231,7 @@ export default function LandingPage() {
                         </div>
                         <div className="text-right flex-shrink-0">
                           <div className="text-sm font-medium text-green-700">
-                            Gueltig
+                            Gültig
                           </div>
                           <div className="text-xs text-gray-500">
                             Noch 45 Tage
@@ -299,7 +299,7 @@ export default function LandingPage() {
                 was Sie brauchen
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Vollstaendiges Genehmigungs-Management fuer den
+                Vollständiges Genehmigungs-Management für den
                 Schwerlasttransport
               </p>
             </div>
@@ -368,7 +368,7 @@ export default function LandingPage() {
                       "Unbegrenzte Genehmigungen hochladen",
                       "OCR-Erkennung aller Formate",
                       "Automatische Ablauf-Erinnerungen",
-                      "Kennzeichen-Matching fuer Auftraege",
+                      "Kennzeichen-Matching für Auftraege",
                       "Rechtliche Vorschriften-Datenbank",
                       "Auswertungen & Kostenstellen-Reports",
                       "DSGVO-konforme Datenspeicherung",
@@ -404,7 +404,7 @@ export default function LandingPage() {
                 Berechnen Sie Ihren ROI
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Wie viel koennen Sie durch HeavyPermit sparen?
+                Wie viel können Sie durch HeavyPermit sparen?
               </p>
             </div>
           </AnimateOnScroll>
@@ -467,7 +467,7 @@ export default function LandingPage() {
               </div>
 
               <h2 className="text-4xl lg:text-5xl font-black uppercase tracking-tight text-foreground mb-6">
-                Bereit fuer den{" "}
+                Bereit für den{" "}
                 <GradientText from="from-blue-700" to="to-orange-500">
                   Start?
                 </GradientText>

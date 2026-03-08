@@ -74,7 +74,7 @@ export const blurIn: Variants = {
   },
 };
 
-// springIn — Physik-basiert, fuer Buttons/Cards die "einfedern"
+// springIn — Physik-basiert, für Buttons/Cards die "einfedern"
 // Einsatz: CTA-Buttons, Pricing-Cards, Badge-Elemente
 export const springIn: Variants = {
   hidden: { opacity: 0, scale: 0.9, y: 20 },

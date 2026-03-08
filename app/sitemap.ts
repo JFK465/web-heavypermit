@@ -58,7 +58,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // Solutions
     {
-      url: `${SITE_URL}/loesungen`,
+      url: `${SITE_URL}/lösungen`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,

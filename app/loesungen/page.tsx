@@ -6,11 +6,11 @@ import Link from "next/link";
 export const metadata: Metadata = generateSEOMetadata({
   title: "Lösungen - HeavyPermit für verschiedene Branchen",
   description: "HeavyPermit Lösungen für Speditionen, Bauunternehmen, Maschinenbau und weitere Branchen mit Schwertransport-Bedarf.",
-  keywords: ["Loesungen Schwertransport", "Branchenloesungen Spedition", "Genehmigungsmanagement Branchen"],
-  canonical: "/loesungen",
+  keywords: ["Lösungen Schwertransport", "Branchenlösungen Spedition", "Genehmigungsmanagement Branchen"],
+  canonical: "/lösungen",
 });
 
-export default function LoesungenPage() {
+export default function LösungenPage() {
   const branchen = [
     {
       icon: Truck,

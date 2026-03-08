@@ -92,7 +92,7 @@ export function Footer() {
             <h4 className="font-bold text-white mb-4">Lösungen</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/loesungen" className="hover:text-white transition">
+                <Link href="/lösungen" className="hover:text-white transition">
                   Lösungen
                 </Link>
               </li>
