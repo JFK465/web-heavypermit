@@ -112,7 +112,7 @@ export function Header() {
       items: [
         {
           name: "Lösungen",
-          href: "/lösungen",
+          href: "/loesungen",
           description: "Branchenspezifisch",
         },
         {
@@ -271,7 +271,7 @@ export function Header() {
                 {openDropdown === "mobile-lösungen" && (
                   <div className="pl-4 mt-2 space-y-2">
                     <Link
-                      href="/lösungen"
+                      href="/loesungen"
                       className="block px-4 py-2 text-sm hover:bg-gray-100 rounded-lg"
                     >
                       Lösungen

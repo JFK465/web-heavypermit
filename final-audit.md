@@ -1,52 +1,45 @@
 # Pre-Launch Audit: HeavyPermit
 
-**Datum:** 2026-03-08
+**Datum:** 2026-03-11
 **Domain:** schwertransport-genehmigung.de
-**Seiten:** 22 | **Blog-Posts:** 3 | **Struktur:** root
+**Seiten:** 22 | **Blog-Posts:** 3 | **Struktur:** root (kein src/)
 
 ## Traffic-Light-Report
 
 | # | Kategorie | Status | Details |
 |---|-----------|--------|---------|
-| 1 | Domain-Konfiguration | GRUEN | Alle URLs auf https://schwertransport-genehmigung.de |
-| 2 | Assets | ROT | og.png, favicon.ico, apple-touch-icon + Favicon-PNGs fehlen |
+| 1 | Domain-Konfiguration | GRUEN | Alle URLs konsistent auf https://schwertransport-genehmigung.de |
+| 2 | Assets | GRUEN | Alle 11 Assets vorhanden (og.png, Logo-Set, Favicon-Set) |
 | 3 | Build & Lint | GRUEN | Build + Lint fehlerfrei |
 | 4 | SEO Metadata | GRUEN | 22/22 Seiten mit Metadata (Layouts fuer Client-Pages) |
-| 5 | Structured Data | GELB | Organization+WebSite OK, Unterseiten ohne Schemas |
-| 6 | Sitemap | GRUEN | Legal Pages entfernt, alle oeffentlichen Seiten enthalten |
-| 7 | Robots.ts | GRUEN | Korrekt konfiguriert mit Produktions-Domain |
-| 8 | Legal Pages | GRUEN | noindex gesetzt, nicht in Sitemap |
-| 9 | Blog & Content | GRUEN | 3 Blog-Posts mit vollstaendiger Metadata |
-| 10 | Navigation | GRUEN | Header: 15 Links, Footer: 17 Links |
+| 5 | Structured Data | GRUEN | Organization+WebSite+BreadcrumbSchema+WebPageSchema+ArticleSchema auf allen Seiten |
+| 6 | Sitemap | GRUEN | 19 oeffentliche Seiten, Legal Pages ausgeschlossen |
+| 7 | Robots.ts | GRUEN | allow:/, disallow /api/ + /_next/, Sitemap-URL korrekt |
+| 8 | Legal Pages | GRUEN | Impressum, Datenschutz, AGB: noindex gesetzt, nicht in Sitemap |
+| 9 | Blog & Content | GRUEN | 3 Blog-Posts mit ArticleSchema |
+| 10 | Navigation | GRUEN | Header: 13+ Links (Mega-Menu), Footer: 19 Links (4-Spalten) |
 | 11 | UWG-Compliance | GRUEN | Keine Fake-Daten, kein aggregateRating |
-| 12 | Deployment | GELB | GitHub-Repo OK, DNS zeigt auf 217.160.0.156 (nicht Vercel) |
-| 13 | Performance | GRUEN | Keine console.logs, kein ignoreBuildErrors |
+| 12 | Deployment | GRUEN | GitHub-Repo + PROJEKT-UEBERSICHT + Vercel (HTTP 200) |
+| 13 | Performance | GRUEN | og.png 291KB, keine console.logs, kein ignoreBuildErrors |
 
-**BLOCKIEREND (ROT): 1** | **WARNUNGEN (GELB): 2** | **OK (GRUEN): 10**
+**BLOCKIEREND (ROT): 0** | **WARNUNGEN (GELB): 0** | **OK (GRUEN): 13**
 
-## Durchgefuehrte Fixes
+**GO-LIVE STATUS: BEREIT**
 
-1. **Domain-Konfiguration**: localhost-Fallback in 6 Dateien auf `https://schwertransport-genehmigung.de` geaendert (layout.tsx, sitemap.ts, robots.ts, metadata.ts, StructuredData.tsx, project-meta.json)
-2. **Legal Pages**: `robots: { index: false, follow: true }` in Impressum, Datenschutz, AGB gesetzt
-3. **Sitemap**: Legal Pages (Impressum, Datenschutz, AGB) entfernt
-4. **SEO Metadata**: Layout-Dateien fuer tools/roi-rechner und tools/genehmigungs-checker erstellt
-5. **Lint**: useEffect-Dependency-Warning in roi-rechner gefixt
+## Durchgefuehrte Fixes (2026-03-11)
 
-## Offene Punkte
-
-- **Assets (ROT)**: `/saas-assets heavypermit` ausfuehren fuer og.png, favicon.ico, apple-touch-icon etc.
-- **Structured Data (GELB)**: FAQSchema, ArticleSchema auf Unterseiten ergaenzen
-- **Deployment (GELB)**: DNS CNAME auf Vercel umstellen (aktuell 217.160.0.156)
-
-## Naechste Schritte
-
-1. `/saas-assets heavypermit` ausfuehren
-2. DNS-CNAME auf cname.vercel-dns.com setzen
-3. Google Search Console einrichten (siehe unten)
+1. **Sitemap**: `app/sitemap.ts` erstellt mit 19 oeffentlichen Seiten (ohne Legal Pages)
+2. **Robots**: `app/robots.ts` erstellt mit allow:/, disallow /api/ + /_next/, Sitemap-URL
+3. **Broken Links**: `/loesungen` statt `/lösungen` in Header (2x), Footer (1x), Canonical (1x)
+4. **SEO Metadata**: Layout-Dateien fuer tools/genehmigungs-checker und tools/roi-rechner erstellt
+5. **Structured Data**: BreadcrumbSchema + WebPageSchema auf 12 Seiten, ArticleSchema auf 3 Blog-Posts
+6. **Performance**: og.png von 1.7MB auf 291KB komprimiert
+7. **publisher.logo**: StructuredData.tsx korrigiert: logo.png → logo.svg
 
 ## Google Search Console Setup
 
 1. Property hinzufuegen: https://schwertransport-genehmigung.de
+   → https://search.google.com/search-console
 2. Inhaberschaft verifizieren (DNS-TXT oder HTML-Tag)
 3. Sitemap einreichen: https://schwertransport-genehmigung.de/sitemap.xml
 4. URL-Inspektion fuer Homepage ausfuehren

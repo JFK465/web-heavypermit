@@ -169,7 +169,7 @@ export function ArticleSchema({
       name: "HeavyPermit",
       logo: {
         "@type": "ImageObject",
-        url: `${SITE_URL}/logo.png`,
+        url: `${SITE_URL}/logo.svg`,
       },
     },
     ...(image && {

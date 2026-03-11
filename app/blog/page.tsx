@@ -3,12 +3,23 @@ import { generateSEOMetadata } from "@/lib/seo/metadata";
 import { FileText, Calendar } from "lucide-react";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
+import {
+  WebPageSchema,
+  BreadcrumbSchema,
+} from "@/components/seo/StructuredData";
+
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://schwertransport-genehmigung.de";
 
 export const metadata: Metadata = generateSEOMetadata({
   title: "Blog - Expertenwissen für Speditionen",
   description:
     "Ratgeber und Expertenwissen zu Schwertransport-Genehmigungen, rechtlichen Anforderungen und Tipps für Speditionen. Jetzt lesen und profitieren!",
-  keywords: ["Schwertransport Blog", "Genehmigung Ratgeber", "Spedition Wissen"],
+  keywords: [
+    "Schwertransport Blog",
+    "Genehmigung Ratgeber",
+    "Spedition Wissen",
+  ],
   canonical: "/blog",
 });
 
@@ -41,56 +52,69 @@ const blogPosts = [
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <div className="container mx-auto px-4 py-8">
-        <Breadcrumbs items={[{ name: "Blog", href: "/blog" }]} />
+    <>
+      <BreadcrumbSchema
+        items={[
+          { position: 1, name: "Home", item: SITE_URL },
+          { position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+        ]}
+      />
+      <WebPageSchema
+        name="Blog - Expertenwissen für Speditionen"
+        description="Ratgeber und Expertenwissen zu Schwertransport-Genehmigungen, rechtlichen Anforderungen und Tipps für Speditionen. Jetzt lesen und profitieren!"
+        url={`${SITE_URL}/blog`}
+      />
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+        <div className="container mx-auto px-4 py-8">
+          <Breadcrumbs items={[{ name: "Blog", href: "/blog" }]} />
 
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Blog & Ratgeber
-          </h1>
-          <p className="text-xl text-gray-600">
-            Expertenwissen zu Schwertransport-Genehmigungen
-          </p>
-        </div>
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              Blog & Ratgeber
+            </h1>
+            <p className="text-xl text-gray-600">
+              Expertenwissen zu Schwertransport-Genehmigungen
+            </p>
+          </div>
 
-        {/* Blog Posts */}
-        <div className="max-w-4xl mx-auto">
-          <div className="grid gap-8">
-            {blogPosts.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="block group"
-              >
-                <article className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-8">
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-                    <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-medium">
-                      {post.category}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {new Date(post.date).toLocaleDateString("de-DE", {
-                        day: "numeric",
-                        month: "long",
-                        year: "numeric",
-                      })}
-                    </span>
-                  </div>
-                  <h2 className="text-2xl font-bold text-gray-900 group-hover:text-blue-900 transition mb-3">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-600">{post.excerpt}</p>
-                  <div className="mt-4 text-blue-600 font-medium flex items-center gap-1 group-hover:gap-2 transition">
-                    Weiterlesen →
-                  </div>
-                </article>
-              </Link>
-            ))}
+          {/* Blog Posts */}
+          <div className="max-w-4xl mx-auto">
+            <div className="grid gap-8">
+              {blogPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="block group"
+                >
+                  <article className="bg-white rounded-2xl shadow-md hover:shadow-xl transition p-8">
+                    <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
+                      <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-medium">
+                        {post.category}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {new Date(post.date).toLocaleDateString("de-DE", {
+                          day: "numeric",
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </span>
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-900 group-hover:text-blue-900 transition mb-3">
+                      {post.title}
+                    </h2>
+                    <p className="text-gray-600">{post.excerpt}</p>
+                    <div className="mt-4 text-blue-600 font-medium flex items-center gap-1 group-hover:gap-2 transition">
+                      Weiterlesen →
+                    </div>
+                  </article>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
