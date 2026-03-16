@@ -1,195 +1,142 @@
-import type { Metadata } from "next";
-import { Breadcrumbs } from "@/components/layout/Breadcrumbs";
-import { Mail, MapPin, Clock } from "lucide-react";
-import { generateSEOMetadata } from "@/lib/seo/metadata";
-import {
-  WebPageSchema,
-  BreadcrumbSchema,
-} from "@/components/seo/StructuredData";
+import { Metadata } from "next";
+import Link from "next/link";
+import { ContactForm } from "@/components/contact/ContactForm";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://schwertransport-genehmigung.de";
+const PRODUCT_NAME = "HeavyPermit";
+const PRODUCT_DOMAIN = "schwertransport-genehmigung.de";
+const CONTACT_EMAIL = "info@schwertransport-genehmigung.de";
 
-export const metadata: Metadata = generateSEOMetadata({
-  title: "Kontakt - Jetzt unverbindlich anfragen",
-  description:
-    "Kontaktieren Sie das HeavyPermit Team. Wir beraten Sie gerne zu unserem Genehmigungs-Management für Schwertransporte. Jetzt Kontakt aufnehmen!",
-  keywords: [
-    "HeavyPermit Kontakt",
-    "Genehmigungs-Management Kontakt",
-    "Schwertransport Software Kontakt",
-  ],
-  canonical: "/kontakt",
-});
+export const metadata: Metadata = {
+  title: `Kontakt – ${PRODUCT_NAME} | Wir sind fuer Sie da`,
+  description: `Kontaktieren Sie ${PRODUCT_NAME} fuer Fragen, Feedback oder Support. E-Mail: ${CONTACT_EMAIL}. Wir antworten innerhalb von 24 Stunden.`,
+  openGraph: {
+    title: `Kontakt – ${PRODUCT_NAME}`,
+    description: `Nehmen Sie Kontakt mit uns auf. Wir beraten Sie gerne zu ${PRODUCT_NAME}.`,
+    type: "website",
+    locale: "de_DE",
+    url: `https://${PRODUCT_DOMAIN}/kontakt`,
+  },
+  alternates: {
+    canonical: `https://${PRODUCT_DOMAIN}/kontakt`,
+  },
+};
 
 export default function KontaktPage() {
   return (
-    <>
-      <BreadcrumbSchema
-        items={[
-          { position: 1, name: "Home", item: SITE_URL },
-          { position: 2, name: "Kontakt", item: `${SITE_URL}/kontakt` },
-        ]}
-      />
-      <WebPageSchema
-        name="Kontakt - Jetzt unverbindlich anfragen"
-        description="Kontaktieren Sie das HeavyPermit Team. Wir beraten Sie gerne zu unserem Genehmigungs-Management für Schwertransporte. Jetzt Kontakt aufnehmen!"
-        url={`${SITE_URL}/kontakt`}
-      />
-      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-        <div className="container mx-auto px-4 py-8">
-          <Breadcrumbs items={[{ name: "Kontakt", href: "/kontakt" }]} />
+    <main className="min-h-screen">
+      {/* Hero */}
+      <section className="px-6 py-16 lg:py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl text-center">
+          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+            Wir sind fuer Sie da
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            Haben Sie Fragen zu {PRODUCT_NAME}? Wir freuen uns auf Ihre Nachricht
+            und antworten innerhalb von 24 Stunden.
+          </p>
+        </div>
+      </section>
 
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Kontakt</h1>
-            <p className="text-xl text-gray-600 mb-12">
-              Haben Sie Fragen zu HeavyPermit? Wir helfen Ihnen gerne weiter.
-            </p>
-
-            <div className="grid md:grid-cols-2 gap-12">
-              {/* Kontaktformular */}
-              <div className="bg-white rounded-xl shadow-md p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Nachricht senden
-                </h2>
-                <form className="space-y-4">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Ihr Name"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      E-Mail
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="ihre@email.de"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="company"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Firma (optional)
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Ihre Firma"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 mb-1"
-                    >
-                      Nachricht
-                    </label>
-                    <textarea
-                      id="message"
-                      rows={5}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Wie können wir Ihnen helfen?"
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full bg-orange-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-700 transition"
-                  >
-                    Nachricht senden
-                  </button>
-                </form>
+      {/* Form + Sidebar */}
+      <section className="px-6 pb-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-12 lg:grid-cols-5">
+            {/* Contact Form */}
+            <div className="lg:col-span-3">
+              <div className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm">
+                <h2 className="text-2xl font-semibold mb-1">Nachricht senden</h2>
+                <p className="text-muted-foreground mb-6">
+                  Fuellen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden bei Ihnen.
+                </p>
+                <ContactForm />
               </div>
+            </div>
 
-              {/* Kontaktinformationen */}
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                  Kontaktinformationen
-                </h2>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-6 h-6 text-blue-600" />
-                    </div>
+            {/* Sidebar */}
+            <div className="lg:col-span-2 space-y-6">
+              {/* Kontaktdaten */}
+              <div className="rounded-2xl border bg-card p-6 shadow-sm">
+                <h2 className="text-lg font-semibold mb-5">Kontaktdaten</h2>
+                <div className="space-y-5">
+                  <div className="flex gap-3">
+                    <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
                     <div>
-                      <h3 className="font-semibold text-gray-900">E-Mail</h3>
+                      <p className="font-medium text-sm">E-Mail</p>
                       <a
-                        href="mailto:info@heavypermit.de"
-                        className="text-gray-600 hover:text-blue-600"
+                        href={`mailto:${CONTACT_EMAIL}`}
+                        className="text-primary hover:underline text-sm"
                       >
-                        info@heavypermit.de
+                        {CONTACT_EMAIL}
                       </a>
                     </div>
                   </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-blue-600" />
-                    </div>
+                  <div className="flex gap-3">
+                    <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
                     <div>
-                      <h3 className="font-semibold text-gray-900">Adresse</h3>
-                      <p className="text-gray-600">
-                        HeavyPermit
-                        <br />
-                        123 Musterstraße
-                        <br />
-                        12345 Musterstadt
+                      <p className="font-medium text-sm">Anschrift</p>
+                      <p className="text-sm text-muted-foreground">
+                        Jonas Krueger<br />
+                        Meisenweg 13<br />
+                        78465 Konstanz<br />
+                        Deutschland
                       </p>
                     </div>
                   </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-6 h-6 text-blue-600" />
-                    </div>
+                  <div className="flex gap-3">
+                    <svg className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <circle cx="12" cy="12" r="10" />
+                      <polyline points="12 6 12 12 16 14" />
+                    </svg>
                     <div>
-                      <h3 className="font-semibold text-gray-900">
-                        Öffnungszeiten
-                      </h3>
-                      <p className="text-gray-600">Mo - Fr: 9:00 - 17:00 Uhr</p>
+                      <p className="font-medium text-sm">Reaktionszeit</p>
+                      <p className="text-sm text-muted-foreground">
+                        Wir antworten in der Regel<br />
+                        innerhalb von 24 Stunden
+                      </p>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                {/* FAQ Hinweis */}
-                <div className="mt-8 p-6 bg-gray-50 rounded-xl">
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    Schnelle Antwort?
-                  </h3>
-                  <p className="text-gray-600 text-sm">
-                    Vielleicht finden Sie die Antwort auf Ihre Frage in unserem{" "}
-                    <a href="/blog" className="text-blue-600 hover:underline">
-                      Blog
-                    </a>{" "}
-                    oder auf der{" "}
-                    <a href="/preise" className="text-blue-600 hover:underline">
-                      Preise-Seite
-                    </a>
-                    .
-                  </p>
+              {/* Schnellzugriff */}
+              <div className="rounded-2xl border bg-card p-6 shadow-sm">
+                <h2 className="text-lg font-semibold mb-4">Schnellzugriff</h2>
+                <div className="space-y-1">
+                  <Link
+                    href="/preise"
+                    className="flex items-center gap-3 rounded-lg p-3 hover:bg-muted transition-colors"
+                  >
+                    <svg className="h-4 w-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <div>
+                      <p className="font-medium text-sm">Preise & Pakete</p>
+                      <p className="text-xs text-muted-foreground">Transparente Preisgestaltung</p>
+                    </div>
+                  </Link>
+                  <Link
+                    href="/blog"
+                    className="flex items-center gap-3 rounded-lg p-3 hover:bg-muted transition-colors"
+                  >
+                    <svg className="h-4 w-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                    <div>
+                      <p className="font-medium text-sm">Blog & Wissen</p>
+                      <p className="text-xs text-muted-foreground">Fachartikel und Anleitungen</p>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </section>
+    </main>
   );
 }
