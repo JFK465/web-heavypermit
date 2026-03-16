@@ -183,14 +183,8 @@ export function Header() {
             </Link>
           </nav>
 
-          {/* CTA Buttons */}
+          {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href={`${APP_URL}/auth/login`}
-              className="px-4 py-2 text-gray-700 hover:text-gray-900 font-medium transition"
-            >
-              Anmelden
-            </a>
             <a
               href={`${APP_URL}/beta-signup`}
               className="px-5 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold transition"
@@ -343,12 +337,6 @@ export function Header() {
 
               <div className="border-t border-gray-200 my-2"></div>
 
-              <a
-                href={`${APP_URL}/auth/login`}
-                className="px-4 py-2 hover:bg-gray-100 rounded-lg font-medium"
-              >
-                Anmelden
-              </a>
               <a
                 href={`${APP_URL}/beta-signup`}
                 className="mx-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold text-center block"

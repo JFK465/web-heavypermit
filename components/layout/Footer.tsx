@@ -191,14 +191,6 @@ export function Footer() {
                   AGB
                 </Link>
               </li>
-              <li>
-                <a
-                  href={`${APP_URL}/auth/login`}
-                  className="hover:text-white transition"
-                >
-                  Login
-                </a>
-              </li>
             </ul>
           </div>
         </div>
