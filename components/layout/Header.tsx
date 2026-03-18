@@ -185,23 +185,25 @@ export function Header() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-3">
-            <a
-              href={`${APP_URL}/beta-signup`}
+            <Link
+              href="/spedition-software"
               className="px-5 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold transition"
             >
               Kostenlos testen
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition"
+            aria-label={isMobileMenuOpen ? "Menü schließen" : "Menü öffnen"}
+            aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6" aria-hidden="true" />
             ) : (
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6" aria-hidden="true" />
             )}
           </button>
         </div>
@@ -337,12 +339,12 @@ export function Header() {
 
               <div className="border-t border-gray-200 my-2"></div>
 
-              <a
-                href={`${APP_URL}/beta-signup`}
+              <Link
+                href="/spedition-software"
                 className="mx-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 font-semibold text-center block"
               >
                 Kostenlos testen
-              </a>
+              </Link>
             </nav>
           </div>
         )}

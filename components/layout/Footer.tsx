@@ -20,7 +20,11 @@ export function Footer() {
               und Neuigkeiten von HeavyPermit.
             </p>
             <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <label htmlFor="footer-newsletter-email" className="sr-only">
+                E-Mail-Adresse
+              </label>
               <input
+                id="footer-newsletter-email"
                 type="email"
                 placeholder="Ihre E-Mail-Adresse"
                 className="flex-1 px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500"
@@ -77,12 +81,12 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <a
-                  href={`${APP_URL}/beta-signup`}
+                <Link
+                  href="/spedition-software"
                   className="hover:text-white transition"
                 >
                   Kostenlos testen
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
