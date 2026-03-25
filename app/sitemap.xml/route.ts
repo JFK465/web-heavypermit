@@ -34,12 +34,6 @@ function buildEntries(): SitemapEntry[] {
       changefreq: "monthly",
       priority: 0.8,
     },
-    {
-      url: `${SITE_URL}/kontakt`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.6,
-    },
 
     // Branchen-Seiten
     {
