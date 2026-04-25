@@ -1,132 +1,48 @@
-interface SitemapEntry {
+import { getGitLastmod } from "@/lib/sitemap-lastmod";
+
+// Build-time static generation: getGitLastmod nutzt git CLI, das nur
+// im Build-Container verfuegbar ist, nicht in Vercel-Serverless-Runtime.
+// Sitemap wird bei jedem Deploy regeneriert.
+export const dynamic = "force-static";
+
+interface SitemapSource {
   url: string;
-  lastmod: string;
+  source: string;
   changefreq: string;
   priority: number;
 }
 
+interface SitemapEntry extends SitemapSource {
+  lastmod: string;
+}
+
+const STATIC_SOURCES: SitemapSource[] = [
+  { url: "https://schwertransport-genehmigung.de/funktionen", source: "app/funktionen/page.tsx", changefreq: "monthly", priority: 0.9 },
+  { url: "https://schwertransport-genehmigung.de/preise", source: "app/preise/page.tsx", changefreq: "monthly", priority: 0.9 },
+  { url: "https://schwertransport-genehmigung.de/loesungen", source: "app/loesungen/page.tsx", changefreq: "monthly", priority: 0.8 },
+  { url: "https://schwertransport-genehmigung.de/schwertransport-genehmigung", source: "app/schwertransport-genehmigung/page.tsx", changefreq: "monthly", priority: 0.8 },
+  { url: "https://schwertransport-genehmigung.de/spedition-software", source: "app/spedition-software/page.tsx", changefreq: "weekly", priority: 0.9 },
+  { url: "https://schwertransport-genehmigung.de/grossraumtransport-genehmigung", source: "app/grossraumtransport-genehmigung/page.tsx", changefreq: "monthly", priority: 0.8 },
+  { url: "https://schwertransport-genehmigung.de/lkw-genehmigung", source: "app/lkw-genehmigung/page.tsx", changefreq: "monthly", priority: 0.8 },
+  { url: "https://schwertransport-genehmigung.de/tools/genehmigungs-checker", source: "app/tools/genehmigungs-checker/page.tsx", changefreq: "monthly", priority: 0.7 },
+  { url: "https://schwertransport-genehmigung.de/tools/roi-rechner", source: "app/tools/roi-rechner/page.tsx", changefreq: "monthly", priority: 0.7 },
+  { url: "https://schwertransport-genehmigung.de/wissen", source: "app/wissen/page.tsx", changefreq: "weekly", priority: 0.7 },
+  { url: "https://schwertransport-genehmigung.de/wissen/genehmigungspflichten", source: "app/wissen/genehmigungspflichten/page.tsx", changefreq: "monthly", priority: 0.6 },
+  { url: "https://schwertransport-genehmigung.de/wissen/bussgeld-vermeiden", source: "app/wissen/bussgeld-vermeiden/page.tsx", changefreq: "monthly", priority: 0.6 },
+  { url: "https://schwertransport-genehmigung.de/wissen/streckenplanung", source: "app/wissen/streckenplanung/page.tsx", changefreq: "monthly", priority: 0.6 },
+  { url: "https://schwertransport-genehmigung.de/blog", source: "app/blog/page.tsx", changefreq: "weekly", priority: 0.7 },
+  { url: "https://schwertransport-genehmigung.de/blog/schwertransport-genehmigung-guide", source: "app/blog/schwertransport-genehmigung-guide/page.tsx", changefreq: "monthly", priority: 0.6 },
+  { url: "https://schwertransport-genehmigung.de/blog/strafen-vermeiden-schwertransporte", source: "app/blog/strafen-vermeiden-schwertransporte/page.tsx", changefreq: "monthly", priority: 0.6 },
+  { url: "https://schwertransport-genehmigung.de/blog/genehmigungs-pflichten-spediteure", source: "app/blog/genehmigungs-pflichten-spediteure/page.tsx", changefreq: "monthly", priority: 0.6 },
+];
+
 function buildEntries(): SitemapEntry[] {
-  const SITE_URL = "https://schwertransport-genehmigung.de";
+  const staticEntries = STATIC_SOURCES.map((s) => ({
+    ...s,
+    lastmod: getGitLastmod(s.source),
+  }));
 
-  return [
-    // Hauptseiten
-    {
-      url: SITE_URL,
-      lastmod: new Date().toISOString(),
-      changefreq: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${SITE_URL}/funktionen`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/preise`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/loesungen`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.8,
-    },
-
-    // Branchen-Seiten
-    {
-      url: `${SITE_URL}/schwertransport-genehmigung`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/spedition-software`,
-      lastmod: new Date().toISOString(),
-      changefreq: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/grossraumtransport-genehmigung`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/lkw-genehmigung`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.8,
-    },
-
-    // Tools
-    {
-      url: `${SITE_URL}/tools/genehmigungs-checker`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/tools/roi-rechner`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.7,
-    },
-
-    // Wissen
-    {
-      url: `${SITE_URL}/wissen`,
-      lastmod: new Date().toISOString(),
-      changefreq: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/wissen/genehmigungspflichten`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/wissen/bussgeld-vermeiden`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/wissen/streckenplanung`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.6,
-    },
-
-    // Blog
-    {
-      url: `${SITE_URL}/blog`,
-      lastmod: new Date().toISOString(),
-      changefreq: "weekly",
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/blog/schwertransport-genehmigung-guide`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/blog/strafen-vermeiden-schwertransporte`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/blog/genehmigungs-pflichten-spediteure`,
-      lastmod: new Date().toISOString(),
-      changefreq: "monthly",
-      priority: 0.6,
-    },
-  ];
+  return staticEntries;
 }
 
 function toXml(entries: SitemapEntry[]): string {
@@ -142,7 +58,6 @@ function toXml(entries: SitemapEntry[]): string {
     .join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls}
 </urlset>`;
